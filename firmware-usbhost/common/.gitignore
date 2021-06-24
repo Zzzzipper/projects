@@ -1,0 +1,6 @@
+/config.h
+/CommonTest.pro.user*
+/debug
+/Makefile
+/*.Debug
+/*.Release
