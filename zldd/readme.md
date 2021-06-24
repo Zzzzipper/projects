@@ -97,7 +97,7 @@ LibraryManager Failed to retreive 'nope' From loaded library list!
 
 ```
 
-### Lzlddnse
+### License
 The MIT License (MIT)
 
 Copyright (c) <2017> <Eduard Pozdnyakov>
