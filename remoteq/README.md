@@ -5,7 +5,7 @@
 3. The client side - using the Qt framework version 5.12.3.
 4. A socket of the AF_UNIX type is used for connection;
 5. C ++ 17 standard.
-6. The exchange protocol is implemented according to option 2 from [tasks] (https://github.com/Zzzzipper/remoteq/blob/master/docs/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82%D1%83_23_04_20.pdf) to perform test work
+6. The exchange protocol is implemented according to option 2 from [tasks](https://github.com/Zzzzipper/remoteq/blob/master/docs/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%81%D1%82%D1%83_23_04_20.pdf) to perform test work
 7. The assembly and testing was carried out in the Kubuntu 20.04 LTS environment
 
 ##### Development software requirements #####
