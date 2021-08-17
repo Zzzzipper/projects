@@ -64,9 +64,10 @@ make
 cd ..
 ```
 ### Test run
-
+```
 ./bin/server 1312 (or another port)
 ./bin/client -a localhost -p 1312 -t (test mode, may be run some instances)
+```
 
 
 ### License
