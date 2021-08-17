@@ -5,6 +5,7 @@ Examples of projects or their parts for potential employers. Maybe you will like
 - [**zldd**](./zldd/readme.md) - Very simple class to make dynamic library loads simple and easy.
 - [**pjson**](./pjson/readme.md) - Simple json parser.
 - [**firmware-usbhost**](./firmware-usbhost/readme.md) - The terribly commercial and will work strictly on a certain STM32 hardware project.
+- [**multibase**](./multibase/readme.md) - The terribly commercial and will work strictly on a certain STM32 hardware project. 
 
 ## Comments
 
