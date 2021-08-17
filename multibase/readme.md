@@ -1,5 +1,5 @@
 # simple key/value database maked with boost::multi_index_container mapped to shared memory
-Implement a small key-value database
+Implementation a small simple key-value database
 There is a server that listens for requests on the specified IP: PORT
 Internal server storage is one boost :: multi_index, which is stored in a memory-mapped file
 The key is of type - String (maximum length 1024 characters)
