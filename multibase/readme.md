@@ -53,7 +53,7 @@ Boost version at least 1.71
 Will be checked on Ubuntu 20.04
 
 ### Build 
-
+```
 git clone ...
 cd ./multibase/server
 cmake .
@@ -62,7 +62,7 @@ cd ../client
 cmake .
 make
 cd ..
-
+```
 ### Test run
 
 ./bin/server 1312 (or another port)
