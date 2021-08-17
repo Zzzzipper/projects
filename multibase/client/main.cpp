@@ -53,7 +53,7 @@ bool preCheckArgs(variables_map &vm) {
     return true;
 }
 
-void test(const std::string host_, const std::string port_);
+void test(const std::string host_, const std::string port_, int delay);
 
 /**
  * @brief main
@@ -70,17 +70,17 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    string operation, key, value_, host, port;
+    string operation, key, value_, host, port, t;
 
     options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "print usage message")
-            ("addr,a", value(&host), "multibase server host")
+            ("addr,a", value(&host), "multibase server host ipv4 address")
             ("port,p", value(&port), "multibase server port")
             ("operation,o", value(&operation), "operation: INSERT, UPDATE, DELETE or GET")
             ("key,k", value(&key), "key of value")
             ("value,v", value(&value_), "value body")
-            ("test,t", "test mode")
+            ("test,t", value(&t), "test mode and delay transaction, msec.")
             ;
 
     try {
@@ -95,8 +95,10 @@ int main(int argc, char* argv[]) {
 
         // Run in test mode
         if(vm.count("test")) {
-            if(vm.count("addr") && vm.count("port")) {
-                test(vm["addr"].as<string>(), vm["port"].as<string>());
+            if(vm.count("addr") && vm.count("port") && vm.count("test")) {
+                auto delay = std::atoi(vm["test"].as<string>().c_str());
+                test(vm["addr"].as<string>(),
+                        vm["port"].as<string>(), delay);
             } else {
                 return multibase::ArgsError;
             }

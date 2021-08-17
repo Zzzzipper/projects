@@ -19,4 +19,3 @@
 #define MAX_MESSAGE_LENGTH  1049600UL
 
 #define ECHO_INTERVAL       2 // sec.
-#define TEST_INTERVAL       10 // msec/

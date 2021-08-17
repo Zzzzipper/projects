@@ -17,12 +17,15 @@ using boost::asio::ip::tcp;
 class Handler
 {
 public:
-    Handler(boost::asio::io_service& io, std::string host, std::string port)
-        : strand_(io),
-          timer_(io, boost::posix_time::millisec(TEST_INTERVAL)),
+
+    Handler(boost::asio::io_service& io, std::string host, std::string port, int delay)
+        : delay_(delay),
+          strand_(io),
+          timer_(io, boost::posix_time::millisec(delay_)),
           host_(host),
           port_(port),
           counter_(0L)
+
     {
         timer_.async_wait(strand_.wrap(boost::bind(&Handler::message, this)));
     }
@@ -59,7 +62,7 @@ public:
      */
     void message() {
         try {
-            LOG_INFO << ".. run test";
+            LOG_DEBUG << ".. run test, delay " << delay_ << " msec.";
 
             tcp::socket s(strand_);
             tcp::resolver resolver(strand_);
@@ -115,7 +118,7 @@ public:
             LOG_INFO << "Reply code: " << response.code
                      << ", what: " << response.what;
 
-            timer_.expires_at(timer_.expires_at() + boost::posix_time::millisec(TEST_INTERVAL));
+            timer_.expires_at(timer_.expires_at() + boost::posix_time::millisec(delay_));
             timer_.async_wait(strand_.wrap(boost::bind(&Handler::message, this)));
 
         } catch(std::exception& e) {
@@ -124,12 +127,14 @@ public:
     }
 
 private:
+    int delay_=1000;
     boost::asio::io_service::strand strand_;
     boost::asio::deadline_timer timer_;
     std::string host_;
     std::string port_;
     unsigned int counter_;
     multibase::request r_;
+
 };
 
 /**
@@ -137,11 +142,11 @@ private:
  * @param host
  * @param port
  */
-void test(const std::string host, const std::string port) {
+void test(const std::string host, const std::string port, int delay) {
 
     boost::asio::io_service io_service;
 
-    Handler h(io_service, host, port);
+    Handler h(io_service, host, port, delay);
     boost::thread t(boost::bind(&boost::asio::io_service::run, &io_service));
 
     io_service.run();
