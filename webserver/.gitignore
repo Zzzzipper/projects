@@ -1,0 +1,52 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/server
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Binary files
+/fave
+/bin/*
+
+# Virtual hosts logs
+/hosts/*/logs/*
+!/hosts/*/logs/.*
+
+# Virtual hosts temp dir
+/hosts/*/tmp/*
+!/hosts/*/tmp/.*
+
+# Test virtual host dir
+/hosts/*
+!/hosts/localhost
+/hosts/*/htdocs/products
+/hosts/*/htdocs/products.xml
+/hosts/*/htdocs/public/*
+!/hosts/*/htdocs/public/.*
+
+# Default host mysql config file
+/hosts/localhost/config/mysql.json
+
+# All else
+/hosts/localhost/config/config.json
+
+# Domains binding
+/hosts/localhost/config/.domains
+
+# Skip cypress libs folder
+/support/cypress/screenshots
+/support/cypress/videos
+/support/node_modules
+
+
+.idea
+go-web
+*.sum

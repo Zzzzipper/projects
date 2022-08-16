@@ -1,0 +1,83 @@
+.App-body {
+    // background-color: #282c34;
+    min-height       : 100vh;
+    // height        : 100%;
+    display          : flex;
+    flex-direction   : column;
+    font-size        : calc(10px + 2vmin);
+    color            : white;
+}
+
+.trigger {
+    padding    : 0 24px;
+    font-size  : 18px;
+    line-height: 64px;
+    cursor     : pointer;
+    transition : color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
+}
+
+.logo {
+    height: 32px;
+    margin: 16px;
+}
+
+.logo h1 {
+    color: white;
+}
+
+.site-layout .site-layout-background {
+    background: #fff;
+}
+
+.license-tree {
+    font-size: calc(13px + 2vmin) !important;
+}
+
+.chart {
+    margin-top: 50px;
+    border    : 2px solid rgb(245, 243, 243);
+}
+
+.retro-panel {
+    border       : 2px solid rgb(245, 243, 243);
+    color        : #797979;
+    margin-bottom: 30px;
+    padding: 5px;
+}
+
+.retro-panel-element {
+    font-size: 20px;
+
+    :hover {
+        color: rgb(66, 144, 247);
+    }
+
+    .pdf {
+        :hover {
+            color: rgb(255, 0, 0);
+        }
+    }
+
+    &:not(:first-child) {
+        margin-left: 10px;
+    }
+
+}
+
+.retro-panel-element-pdf {
+    font-size: 20px;
+
+    :hover {
+        color: rgb(255, 0, 0);
+    }
+
+
+    &:not(:first-child) {
+        margin-left: 10px;
+    }
+
+}

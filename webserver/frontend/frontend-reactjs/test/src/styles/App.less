@@ -1,0 +1,144 @@
+@hover-border-color: rgba(64, 169, 255, 0.4); //#40a9ff;
+@hover-bg-color: rgba(64, 169, 255, 0.1);
+
+@checked-border-color: rgba(64, 169, 255, 0.7); //#40a9ff;
+@checked-bg-color: rgba(64, 169, 255, 0.4);
+
+@text-color: black;
+
+.tabcontent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.toolbar {
+    background-color: white;
+    padding: 5px;
+
+    & .ant-btn-link {
+        padding-left: 7px;
+        padding-right: 7px;
+        color: @text-color;
+
+        &:focus {
+            color: @text-color;
+        }
+    }
+
+    & .unchecked:hover {
+        background-color: @hover-bg-color;
+        border-color: @hover-border-color;
+        color: @text-color;
+    } 
+
+    & .checked {
+        background-color: @checked-bg-color !important;
+        border-color: @checked-border-color !important;
+
+        &:hover {
+            color: @text-color;
+        }
+    } 
+    
+    & .begingroup {
+        padding-left: 1px;
+        padding-right: 1px;
+    }    
+}
+
+.content {
+  flex-grow: 1;
+}
+
+
+.ant-tabs-content {
+    height: 100%;
+}
+
+  .ant-table-wrapper {
+    height:100%;
+    overflow: hidden;
+  
+    .ant-spin-nested-loading {
+      height: 100%;
+  
+      .ant-spin-container {
+        height: 100%;
+        display: flex;
+        
+        .ant-table {
+          flex: auto;
+          overflow: hidden;
+  
+          .ant-table-container {
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+ 
+            .ant-table-header {
+              flex: none;
+            }
+  
+            .ant-table-body {
+              flex: auto;
+              overflow: scroll;
+/*
+              & > table {   корректировка для контейнера No Data 
+                height: 100%;
+              } */
+
+              & .ant-table-placeholder > td { /* убрана нижняя граница в ячейке Нет даных */
+                border-bottom: none;
+              }
+            }
+          }
+        }
+  
+        .ant-table-pagination {
+          flex: none;
+        }
+      }
+    }
+  }
+
+/* изначальный вариант, оставляю на всякий случай
+.ant-table-wrapper {
+  height: 100%;
+
+  .ant-spin-nested-loading {
+    height: 100%;
+
+    .ant-spin-container {
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+
+      .ant-table {
+        flex: auto;
+        overflow: hidden;
+
+        .ant-table-container {
+          height: 100%;
+          display: flex;
+          flex-flow: column nowrap;
+
+          .ant-table-header {
+            flex: none;
+          }
+
+          .ant-table-body {
+            flex: auto;
+            overflow: scroll;
+          }
+        }
+      }
+
+      .ant-table-pagination {
+        flex: none;
+      }
+    }
+  }
+}
+*/
+

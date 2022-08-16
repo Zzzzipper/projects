@@ -1,0 +1,396 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            width: 600px;
+            margin: 2px auto
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        jQuery(function () {
+            // jQuery('#menu').click(function () {
+            //     $.ajax({
+            //         url: '/menu',
+            //         method: 'post',
+            //         dataType: 'json',
+            //         contentType: 'application/json',
+            //         success: function (data) {
+            //             console.log(data);
+            //         }
+            //     });
+            // });
+
+            jQuery('#logout').click(function () {
+                $.ajax({
+                    url: '/logout',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            jQuery('#auth').click(function () {
+                $.ajax({
+                    url: '/login',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ login: "Дьяченко_МЮ", password: "1" }),
+                    //data: JSON.stringify({ login: "admin", password: ""}),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            // jQuery('#auth').click(function () {
+            //     $.ajax({
+            //         url: '/login',
+            //         method: 'post',
+            //         dataType: 'json',
+            //         contentType: 'application/json',
+            //         data: JSON.stringify({ login: "Дьяченко_МЮ", password: "1"}),
+            //         //data: JSON.stringify({ login: "admin", password: ""}),
+            //         success: function (data) {
+            //             console.log(data);
+            //         }
+            //     });
+            // });
+
+            jQuery('#auth_fail').click(function () {
+                $.ajax({
+                    url: '/login',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    // data: JSON.stringify({ login: "admin", password: ""}),
+                    // data: JSON.stringify({ login: "web", password: "web1"}),
+                    data: JSON.stringify({ login: "Дьяченко_МЮ", password: "1" }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            jQuery('#status').click(function () {
+                $.ajax({
+                    url: '/status',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    //data: JSON.stringify({ login: "web", password: "web1"}),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+
+            // jQuery('#form_options').click(function () {
+            //     $.ajax({
+            //         url: '/retro',
+            //         method: 'options',
+            //         dataType: 'json',
+            //         contentType: 'application/json',
+            //         data: JSON.stringify({ file: 'Тестовая.rts_' }),
+            //         success: function (data) {
+            //             console.log(data);
+            //         }
+            //     });
+            // });
+
+            jQuery('#form').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'GetForm',
+                        message: '{"name":"Диспетчерская схема.xsde_", "info_only":"false"}'
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            // jQuery('#measuring').click(function () {
+            //     $.ajax({
+            //         url: '/retro/measuring',
+            //         method: 'post',
+            //         dataType: 'json',
+            //         contentType: 'application/json',
+            //         data: JSON.stringify({ ids: [
+            //             'c93aed94da794bc9b11189b9b9931406',
+            //             '7f66ad7b58534ca5a51a5ffcd0e94fd1', 
+            //             '6a6045777fc0411fade6c8b670cc0480',
+            //             'abdabdabdabdabbabababadbbauuu_x',
+            //             '78186693E42C42F88911131FED66DF5F'
+            //         ], startTime: 0, endTime: 0 }),
+            //         success: function (data) {
+            //             console.log(data);
+            //         }
+            //     });
+            // });
+
+            // jQuery('#lockids').click(function () {
+            //     $.ajax({
+            //         url: '/lockids',
+            //         method: 'post',
+            //         dataType: 'json',
+            //         contentType: 'application/json',
+            //         data: JSON.stringify({ ids: [
+            //             'c93aed94da794bc9b11189b9b9931406',
+            //             '7f66ad7b58534ca5a51a5ffcd0e94fd1', 
+            //             '6a6045777fc0411fade6c8b670cc0480',
+            //             'abdabdabdabdabbabababadbbauuu_x',
+            //             '78186693E42C42F88911131FED66DF5F'
+            //         ], startTime: 0, endTime: 0 }),
+            //         success: function (data) {
+            //             console.log(data);
+            //         }
+            //     });
+            // });
+
+            var module = 0;
+
+            jQuery('#create_module').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'create_module',
+                        message: '{"library":"modSample","module":"sample1"}',
+                        mod_id: 0
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                        if (data.body != undefined) {
+                            module = data.body.mod_id;
+                        }
+                    }
+                });
+            });
+
+            jQuery('#GetMenu').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'GetMenu',
+                        message: '',
+                        mod_id: module
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+
+            jQuery('#GetControlPrm').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'GetControlPrm',
+                        message: '{"key":"22CC61A9592447E5B31281611D1CD9E3"}',
+                        mod_id: module
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            jQuery('#GetValues').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'GetValues',
+                        message: '[{"id":211},{"id":211,"dt":0,"depth":60,"step":10}]',
+                        mod_id: module
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            jQuery('#SqlRequest').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'SqlRequest',
+                        message: '{"sql":"SELECT * FROM tables","tblname":"tables"}',
+                        mod_id: module
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            jQuery('#license').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'License',
+                        message: '{"kotmi_license": {}}' // Корневой элемент лицензии, т.е. весь json
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            jQuery('#license_partial').click(function () {
+                $.ajax({
+                    url: '/request',
+                    method: 'post',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        command: 'License',
+                        message: '{"kotmi_license": { "license":"RdxServer.exe"}}'
+                    }),
+                    success: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+
+            // '{"kotmi_license": { "number": 0, "date": "2021.12.20", "limit": 0, "version": "", "vendor": { "name": "" }, "client": { "name": "Request" }, "licenses": [ { "name": "RdxIec101.dll", "caption": "", "isValid": 0, "lastError": "Empty license" }, { "name": "RdxServer.exe", "caption": "", "isValid": 0, "lastError": "Empty license", "param": [ { "name": "dir_max", "caption": "", "value": 0, "currentValue": 2, "isValid": 0, "lastError": "Empty parameter" }, { "name": "prm_max", "caption": "", "value": 0, "currentValue": 100, "isValid": 0, "lastError": "Empty parameter" } ] } ] }}'
+
+
+
+            // {
+            //   "kotmi_license": {
+            //     "number": 0,
+            //     "date": "2021.12.20",
+            //     "limit": 0,
+            //     "version": "",
+            //     "vendor": {
+            //       "name": ""
+            //     },
+            //     "client": {
+            //       "name": "Request"
+            //     },
+            //     "licenses": [
+            //       {
+            //         "name": "RdxIec101.dll",
+            //         "caption": "",
+            //         "isValid": 0,
+            //         "lastError": "Empty license"
+            //       },
+            //       {
+            //         "name": "RdxServer.exe",
+            //         "caption": "",
+            //         "isValid": 0,
+            //         "lastError": "Empty license",
+            //         "param": [
+            //           {
+            //             "name": "dir_max",
+            //             "caption": "",
+            //             "value": 0,
+            //             "currentValue": 2,
+            //             "isValid": 0,
+            //             "lastError": "Empty parameter"
+            //           },
+            //           {
+            //             "name": "prm_max",
+            //             "caption": "",
+            //             "value": 0,
+            //             "currentValue": 100,
+            //             "isValid": 0,
+            //             "lastError": "Empty parameter"
+            //           }
+            //         ]
+            //       }
+            //     ]
+            //   }
+            // }
+
+            // 1614182569
+
+
+            // jQuery('#cors').click(function () {
+            //     $.ajax({
+            //         url: 'http://192.168.76.121:8080/',
+            //         method: 'get',
+            //         //dataType: 'json',
+            //         //data: { id: 'c93aed94da794bc9b11189b9b9931406', startTime: 0, endTime: 1614182569 },
+            //         success: function (data) {
+            //             console.log(data);
+            //         }
+            //     });
+            // });
+        });
+    </script>
+    <div class="example cursor" id="form">Данные формы</div>
+    <br />
+    <!-- <div class="example cursor" id="form_options">Данные формы (OPTIONS)</div>
+    <br />
+    <div class="example cursor" id="measuring">Данные измерений</div>
+    <br /> -->
+    <!-- <div class="example cursor" id="menu">Структура меню</div> -->
+    <!-- <div class="example cursor" id="lockids">Lockids</div>
+    <br /> -->
+    <div class="example cursor" id="logout">Выйти из профиля</div>
+    <br />
+    <div class="example cursor" id="auth">Авторизоваться</div>
+    <br />
+    <div class="example cursor" id="auth_fail">Авторизоваться с ошибкой</div>
+    <br />
+    <div class="example cursor" id="status">Статус</div>
+    <br />
+    <div class="example cursor" id="create_module">create_module</div>
+    <br />
+    <!-- <hr> -->
+    <!-- <h4>Новый функционал</h4> -->
+    <div class="example cursor" id="GetMenu">GetMenu</div>
+    <br />
+    <div class="example cursor" id="GetControlPrm">GetControlPrm</div>
+    <br />
+    <div class="example cursor" id="GetValues">GetValues</div>
+    <br />
+    <div class="example cursor" id="SqlRequest">SqlRequest</div>
+    <br />
+    <div class="example cursor" id="license">Лицензия целиком</div>
+    <br />
+    <div class="example cursor" id="license_partial">Лицензия одного объекта</div>
+    <br />
+
+    <!-- <script type="module" src="http://localhost:8080/index.js" async defer></script>
+    <script type="module" integrity="sha384-ZsG+E+8Q6Yh0v98Nd0SfOT1bOX82TJaNaBS1npTZYuq4oD09c6rDD2R9pXqMvter" src="http://localhost:8080/_snowpack/hmr-client.js"></script>
+    <script type="module" integrity="sha384-LH/mFhEGRB4jHedP0nqOoIUwc4VX8eWJxEL+qTGWtroqiLJ2vxX169J0oSBMHL5o" src="http://localhost:8080/_snowpack/hmr-error-overlay.js"></script>
+    <div class="example cursor" id="app"></div> -->
+
+</body>
+
+</html>
