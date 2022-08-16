@@ -1,0 +1,15 @@
+*.o
+build/
+bin/
+*_bin/
+*.user*
+test_server
+_*
+log*
+*.gz
+.vscode/
+# stamp.h
+# increment.h
+BuildNumberCache.txt
+tester/
+*.log

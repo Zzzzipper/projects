@@ -1,0 +1,106 @@
+body {
+    background-color: rgb(255, 250, 230);
+    padding         : 20px;
+    font-family     : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size       : 13px;
+    transform       : scale(1, 1.08);
+    color           : rgb(135, 32, 32);
+}
+
+/* Testers */
+
+#testers {
+    border   : 1px solid coral;
+    /* height: 85vh; */
+    padding  : 8px 8px 0px 8px;
+    display  : inline-block;
+    width    : 100%;
+}
+
+#testers .box {
+    /* border: 1px solid coral; */
+    width  : 100%;
+    margin : 0 0 8px 0;
+    display: block;
+}
+
+#testers .box table {
+    border  : none;
+    position: relative;
+    width   : 100%;
+}
+
+#testers .box table,
+th,
+td {
+    border-collapse: unset;
+    border-spacing : 0px;
+}
+
+#testers .box th,
+td {
+    text-align    : left;
+    vertical-align: middle;
+    height        : 20px;
+    border        : 1px solid rgb(215, 87, 40);
+    padding       : 6px;
+}
+
+#testers .box td {
+    vertical-align: top;
+    border-top    : none;
+}
+
+#testers .box td a:hover {
+    cursor     : pointer;
+    font-weight: bold;
+}
+
+
+#testers .box .tester_tasks td:not(:last-child) {
+    vertical-align: top;
+    border-top    : none;
+    border-right  : none;
+    font-size     : 0.95em;
+}
+
+#testers .box .tester_tasks tr:first-child {
+    border-left: 1px solid rgb(215, 87, 40);
+}
+
+#testers .box .tester_tasks tr:last-child {
+    border-right: 1px solid rgb(215, 87, 40) !important;
+    font-size   : 0.95em;
+}
+
+#testers .box th {
+    background-color: rgba(255, 127, 80, 0.1);
+}
+
+/* Tasks */
+
+#tasks {
+    border : 1px solid coral;
+    padding: 8px 8px 0px 8px;
+    display: inline-block;
+    width  : 100%;
+}
+
+.success {
+    /* background-color: #4CAF50;
+    border          : none;
+    color           : rgb(244, 250, 7);
+    padding         : 10px 20px;
+    text-align      : center;
+    text-decoration : none;
+    display         : inline-block;
+    font-size       : 14px;
+    overflow-wrap   : break-word;
+    border-radius   : 6px; */
+
+}
+
+.success:hover {
+    /* background-color: #5bd15f; */
+    cursor          : pointer;
+}

@@ -1,0 +1,15 @@
+[Unit]
+Description=Web hosts tester
+
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/epozdnyakov/tester/bin/tester --h /home/epozdnyakov/tester/htdocs --r 5.43.224.85:7133 --i 10 --w 8080 -n Tester
+Restart=on-failure
+RestartSec=2
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

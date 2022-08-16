@@ -1,0 +1,16 @@
+[Unit]
+Description=Testers control database adapter (receiver)
+
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+WorkingDirectory=/home/reciver/receiver/bin
+Type=simple
+User=reciver
+ExecStart=/home/reciver/receiver/bin/receiver --h /home/reciver/receiver/htdocs --w 8088 --n Receiver_#0 --p 10101 --l /home/reciver/receiver/logs --d /home/reciver/receiver/db.conf
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

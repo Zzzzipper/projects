@@ -1,0 +1,18 @@
+*.o
+build/
+bin/
+*_bin/
+*.user*
+test_server
+_*
+log*
+*.gz
+.vscode/
+./nagios
+BuildNumberCache.txt
+# stamp.h
+increment.h
+# build.h
+*.log
+ver.h.in
+nagios
